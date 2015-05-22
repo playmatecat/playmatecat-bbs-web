@@ -34,6 +34,20 @@
 		</listener-class>
 	</listener>
 
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
 	<!-- 首页映射，只有 通过这个配置才能访问WEB-INF下的首页 -->
 	<servlet>
 		<servlet-name>welcomePage</servlet-name>
@@ -49,7 +63,8 @@
 	<!-- spring MVC实现，采用servlet进行派发请求 -->
 	<servlet>
 		<servlet-name>springMVC-dispatcher</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<!-- spring mvc启动配置文件 -->
@@ -63,20 +78,20 @@
 		<!-- 拦截所有请求 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<error-page>
-        <error-code>400</error-code>
-        <location>/WEB-INF/jsp/error/404.jsp</location>
-    </error-page>
+		<error-code>400</error-code>
+		<location>/WEB-INF/jsp/error/404.jsp</location>
+	</error-page>
 	<error-page>
-        <error-code>404</error-code>
-        <location>/WEB-INF/jsp/error/404.jsp</location>
-    </error-page>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/WEB-INF/jsp/error/500.jsp</location>
-    </error-page>
-	
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/jsp/error/500.jsp</location>
+	</error-page>
+
 
 
 </web-app>
