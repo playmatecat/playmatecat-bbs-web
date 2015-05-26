@@ -17,6 +17,8 @@ public class TestCtrl {
 		SecurityUtils.getSubject().isPermitted("test:test");
 		ModelAndView mav = new ModelAndView("testModule.testMain");
 		model.addAttribute("testParam", "testModelParams");
+        
+//        ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
 	
@@ -26,6 +28,19 @@ public class TestCtrl {
         SecurityUtils.getSubject().isPermitted("test:test");
         ModelAndView mav = new ModelAndView("testModule.testMain");
         model.addAttribute("testParam", "testModelParams");
+        
+        
+//        ModelAndView mav = new ModelAndView("index");
+        return mav;
+    }
+    
+    @RequestMapping("/testPage2")
+    public ModelAndView testPage2(Model model) {
+        SecurityUtils.getSubject().isPermitted("test:test");
+        ModelAndView mav = new ModelAndView("testModule.testMain");
+        model.addAttribute("testParam", "testModelParams");
+        
+//        ModelAndView mav = new ModelAndView("index");
         return mav;
     }
 }
