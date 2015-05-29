@@ -27,7 +27,8 @@
         <!-- <property name="ignoreUnresolvablePlaceholders" value="true" />  -->
         <property name="locations">
             <list>
-                <value>classpath:config/spring/evn-setting.properties</value>
+                <!-- <value>classpath:config/spring/evn-setting.properties</value> -->
+                <value>classpath:config/props/test/cas/cas.properties</value>
             </list>
         </property>
     </bean>
