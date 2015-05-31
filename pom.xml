@@ -8,6 +8,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>playmatecat-bbs-web-front</module>
+		<module>playmatecat-bbs-authorization</module>
 	</modules>
 	
 	<!-- <properties>
