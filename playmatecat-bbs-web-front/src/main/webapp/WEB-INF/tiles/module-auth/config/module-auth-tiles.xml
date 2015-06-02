@@ -13,6 +13,7 @@
     <!-- 测试页面 -->
     <definition name="module.auth.test" extends="module.auth.layouts.base">
 		<put-attribute name="navbar" value="/WEB-INF/tiles/module-auth/layouts/navbar/navbar-default.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/tiles/module-auth/layouts/sidebar/sidebar-default.jsp" />
     </definition>
     
 
