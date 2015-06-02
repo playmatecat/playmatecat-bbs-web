@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
-	prefix="tilesx"%>
+    prefix="tilesx"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -92,33 +92,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<div class="main-content">
-			<div class="breadcrumbs">
+			<div class="breadcrumbs" id="breadcrumbs">
 				<%-- 顶部下方的breadcrumbs面包屑导航条 --%>
 				<tiles:insertAttribute name="breadcrumbs" ignore="true" />
 			</div>
 
-			<div class="page-content">
-				<%-- setting box goes here if needed 
-				如果需要这里可以加入设置框--%>
-
-				<div class="row">
-					<div class="col-xs-12">
-						<!-- page content goes here 在这里写入你的页面content内容-->
-						<tiles:insertAttribute name="content" ignore="true" />
-					</div>
-					<!-- /.col -->
-				</div>
-				<!-- /.row -->
-
+			<div class="page-content">     
+                <tiles:insertAttribute name="page-content" ignore="true" />
 			</div>
 			<!-- /.page-content -->
 		</div>
 		<!-- /.main-content -->
 
 		<!-- footer area -->
+		<div class="footer">
+			<div class="footer-inner">
+				<div class="footer-content">
+					<!-- footer content here -->
+				</div>
+			</div>
+		</div>
+
 
 	</div>
-	<!-- /.main-container -->
+		<!-- /.main-container -->
 
 
 
