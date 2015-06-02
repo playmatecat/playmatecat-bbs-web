@@ -86,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 
 	<div class="main-container" id="main-container">
-		<div class="sidebar responsive" id="sidebar">
+		<div class="sidebar responsive-min" id="sidebar">
 			<%-- 左侧sidebar --%>
 			<tiles:insertAttribute name="sidebar" ignore="true" />
 		</div>

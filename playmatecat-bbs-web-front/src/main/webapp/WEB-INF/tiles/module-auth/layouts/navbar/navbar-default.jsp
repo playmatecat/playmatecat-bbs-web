@@ -5,20 +5,14 @@
 
 	<%-- toggle buttons are here or inside brand container移动端隐藏菜单按钮,通过 data-target来确定移动端时缩放的是哪个控件--%>
 	<!-- #section:basics/sidebar.mobile.toggle -->
-	<!-- 隐藏菜单的按钮 -->
-    <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-      <!-- 按钮的造型样式,下面做了3个横杠 -->
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!-- /section:basics/sidebar.mobile.toggle -->
-    
-    <!-- mobile隐藏用户和消息工具的按钮 -->
+    <!-- mobile缩进隐藏用户和消息工具的按钮 -->
     <button class="pull-right navbar-toggle navbar-toggle-img collapsed" type="button"
 		data-toggle="collapse" data-target=".navbar-buttons,.navbar-menu">
    		<img src="${ctx}/static/lib/ace-admin-v1.3.2/dist/avatars/user.jpg" alt="Jason's Photo" />
  	</button>
+    <!-- /section:basics/sidebar.mobile.toggle -->
+    
+    
 	
 	
 	<%-- logo 标记 --%>
