@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="module.auth.layouts.base" template="/WEB-INF/tiles/module-auth/layouts/base.jsp">
+        <put-attribute name="description" value="" />
+        <put-attribute name="keywords" value="" />
+        <put-attribute name="title" value="" />
+    </definition>
+
+    <!-- 测试页面 -->
+    <definition name="module.auth.test" extends="module.auth.layouts.base">
+		<put-attribute name="navbar" value="/WEB-INF/tiles/module-auth/layouts/navbar/navbar-default.jsp" />
+    </definition>
+    
+
+
+</tiles-definitions>
