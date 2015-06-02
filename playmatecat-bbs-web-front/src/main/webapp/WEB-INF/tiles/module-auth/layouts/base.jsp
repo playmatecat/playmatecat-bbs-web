@@ -66,11 +66,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
+
+<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-extra.min.js"></script>
+<!--[if lte IE 8]>
+   <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/html5shiv.min.js"></script>
+   <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/respond.min.js"></script>
+  <![endif]-->
+
+
+
+
 </head>
 
 <%-- 可选皮肤有no-skin,skin-1,skin-2,skin-3 --%>
 <body class="no-skin">
-	<div class="navbar navbar-default" id="navbar">
+	<div class="navbar navbar-default navbar-collapse" id="navbar">
 		<%-- 顶部navbar --%>
 		<tiles:insertAttribute name="navbar" ignore="true" />
 	</div>
@@ -110,7 +120,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<!-- /.main-container -->
 
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- list of script files -->
+	<!--[if !IE]> -->
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.min.js"></script> --%>
+	<!-- <![endif]-->
+	<!--[if lte IE 9]>
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+   	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery1x.min.js"></script> --%>
+  	<![endif]-->
+
+	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/bootstrap.min.js"></script>
+
+	<!-- ie8 canvas if required for plugins such as charts, etc -->
+	<!--[if lte IE 8]>
+   	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/excanvas.min.js"></script>
+  	<![endif]-->
+
+	<!-- 顺序上在这里写插件js -->
+	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/plugin1.min.js"></script> --%>
+
+
+	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-elements.min.js"></script>
+	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace.min.js"></script>
+
 
 </body>
 </html>
