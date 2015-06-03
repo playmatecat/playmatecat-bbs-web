@@ -26,7 +26,7 @@
     <task:annotation-driven /> 
     
     <!-- 通过注解，把一个URL映射到Controller“类”上 -->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <bean class="com.playmatecat.spring.mvc.CatRequestMappingHandlerMapping">
         <!-- <property name="interceptors"> 多个拦截器,顺序执行 <ref bean="yourInterceptor" /> </property> -->
     </bean>
     <!-- 通过注解，把一个URL映射到Controller类的“方法”上 -->
