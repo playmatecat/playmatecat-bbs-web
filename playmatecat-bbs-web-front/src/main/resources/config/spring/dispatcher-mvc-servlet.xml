@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
                     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                     http://www.springframework.org/schema/context
                     http://www.springframework.org/schema/context/spring-context-4.0.xsd
                     http://www.springframework.org/schema/mvc  
-                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                    http://www.springframework.org/schema/task
+    				http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 
     <!--开启注解处理器 -->
     <context:annotation-config />
@@ -19,6 +21,9 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
     </context:component-scan>
+    
+    <!-- 支持异步方法执行 ,见spring @Async-->
+    <task:annotation-driven /> 
     
     <!-- 通过注解，把一个URL映射到Controller“类”上 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
