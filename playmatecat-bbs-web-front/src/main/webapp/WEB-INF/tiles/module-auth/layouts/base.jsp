@@ -24,8 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<%-- 若用户有chrome,那么ie浏览时让IE使用chrome内核 --%>
+<%-- 若用户有Google Chrome Frame,那么ie浏览时让IE使用chrome内核 --%>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<%-- 若是双核浏览器,默认webkit渲染(chrome) --%>
+<meta name="renderer" content="webkit"> 
 
 <%-- 描述信息 --%>
 <meta name="description"
