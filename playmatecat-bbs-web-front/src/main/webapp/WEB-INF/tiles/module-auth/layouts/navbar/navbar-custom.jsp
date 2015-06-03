@@ -19,7 +19,7 @@
 	<div class="navbar-header pull-left">
 		<a href="#" class="navbar-brand"> 
 			<small><!-- logo --><i class="ace-icon fa fa-leaf"></i>
-			玩伴BBS权限平台
+			玩伴BBS管理平台
 			</small>
 		</a>
 	</div>

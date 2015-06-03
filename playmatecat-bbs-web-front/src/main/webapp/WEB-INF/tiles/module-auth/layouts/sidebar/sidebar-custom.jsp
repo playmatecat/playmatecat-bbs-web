@@ -51,6 +51,36 @@
 			</li>
 		</ul>
 	</li>
+	
+	
+	<li>
+		<!-- 此处必须加dropdown-toggle子级才可以展开 -->
+		<a href="#" class="dropdown-toggle">
+			<i class="menu-icon fa fa-leaf"></i>
+			<span class="menu-text">授权管理</span>
+			<b class="arrow fa fa-angle-down"></b>
+			<!-- arrow down icon if there's a submenu -->
+		</a>
+
+		<b class="arrow"></b>
+		<!-- optional arrow for minimized menu & hover submenu -->
+
+		<ul class="submenu">
+			<!-- second level item -->
+			<!-- 如果需要选中在li上加上class="active",其他li.active remove active -->
+			<li>
+				<a href="#">
+					<i class="menu-icon fa fa-caret-right"></i>角色管理
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<i class="menu-icon fa fa-caret-right"></i>权限管理
+				</a>
+			</li>
+		</ul>
+	</li>
 
 
 	
