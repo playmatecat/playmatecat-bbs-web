@@ -28,9 +28,21 @@
     <!-- 通过注解，把一个URL映射到Controller“类”上 -->
     <bean class="com.playmatecat.spring.mvc.CatRequestMappingHandlerMapping">
         <!-- <property name="interceptors"> 多个拦截器,顺序执行 <ref bean="yourInterceptor" /> </property> -->
+        <!-- <property name="interceptors">
+        	<list>
+        		<ref bean="shiroAuthUrlInterceptor"/>
+        		<bean class="org.springframework.web.servlet.mvc.WebContentInterceptor"></bean>
+        	</list>
+        </property> -->
     </bean>
     <!-- 通过注解，把一个URL映射到Controller类的“方法”上 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
+
+	<mvc:interceptors>
+		<bean name="shiroAuthUrlInterceptor"
+			class="com.playmatecat.shiro.interceptor.ShiroAuthUrlInterceptor"></bean>
+	</mvc:interceptors>	
+	
 
 
 
@@ -63,11 +75,21 @@
 			<props>
 				<prop key="org.apache.shiro.authz.UnauthorizedException">common/error/403</prop>
 				<prop key="org.apache.shiro.authz.UnauthenticatedException">common/error/403</prop>
+				<prop key="com.playmatecat.spring.exception.NotFoundURIException">common/error/404</prop>
 			</props>
 		</property>
+		<!-- 定义异常statusCode -->
+		<property name="statusCodes">
+			<props>
+				<prop key="common/error/403">403</prop>
+				<prop key="common/error/404">404</prop>
+				<prop key="common/error/500">500</prop>
+			</props>
+		</property>
+		
 		<!-- 定义默认的异常处理页面 -->
 		<property name="defaultErrorView">
-			<value>/error/error</value>
+			<value>common/error/500</value>
 		</property>
 		<!-- 定义异常处理页面用来获取异常信息的变量名，如果不添加exceptionAttribute属性，则默认为exception -->
 		<property name="exceptionAttribute" value="exception"/>

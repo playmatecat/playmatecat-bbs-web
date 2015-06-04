@@ -50,4 +50,11 @@ public class TestCtrl {
         ModelAndView mav = new ModelAndView("module.auth.test");
         return mav;
     }
+    
+    
+    @RequestMapping("/error-404")
+    public ModelAndView error404(Model model) {
+        ModelAndView mav = new ModelAndView("/common/error/404");
+        return mav;
+    }
 }
