@@ -38,9 +38,16 @@
     <!-- 通过注解，把一个URL映射到Controller类的“方法”上 -->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
 
+    <!-- 拦截器链 -->
 	<mvc:interceptors>
 		<bean name="shiroAuthUrlInterceptor"
-			class="com.playmatecat.shiro.interceptor.ShiroAuthUrlInterceptor"></bean>
+			class="com.playmatecat.shiro.interceptor.ShiroAuthUrlInterceptor">
+			<property name="ignoreUriList">
+			     <list>
+			         <value>/static/**</value>
+			     </list>
+			</property>
+		</bean>
 	</mvc:interceptors>	
 	
 
