@@ -25,6 +25,7 @@
         <put-attribute name="title" value="BBS管理平台" />
         <put-attribute name="navbar" value="/WEB-INF/tiles/module-auth/layouts/navbar/navbar-custom.jsp" />
         <put-attribute name="sidebar" value="/WEB-INF/tiles/module-auth/layouts/sidebar/sidebar-custom.jsp" />
+        <put-attribute name="page-content" value="/WEB-INF/tiles/module-auth/layouts/content/page-content-demo.jsp" />
     </definition>
 
 </tiles-definitions>

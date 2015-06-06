@@ -45,6 +45,7 @@
 			<property name="ignoreUriList">
 			     <list>
 			         <value>/static/**</value>
+			         <value>/sub-sys/cas-login</value>
 			     </list>
 			</property>
 		</bean>

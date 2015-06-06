@@ -76,6 +76,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
+
+<!-- list of script files -->
+    <!--[if !IE]> -->
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.min.js"></script> --%>
+    <!-- <![endif]-->
+    <!--[if lte IE 9]>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery1x.min.js"></script> --%>
+    <![endif]-->
+
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/bootstrap.min.js"></script>
+
+    <!-- ie8 canvas if required for plugins such as charts, etc -->
+    <!--[if lte IE 8]>
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/excanvas.min.js"></script>
+    <![endif]-->
+
+    <!-- 顺序上在这里写插件js -->
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.min.js"></script>
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script>
+
+
+    <!-- 顺序上这里写ace自带插件 -->
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-elements.min.js"></script>
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace.min.js"></script>
+
+
+
+
+
+
 </head>
 
 <%-- 可选皮肤有no-skin,skin-1,skin-2,skin-3 --%>
@@ -129,29 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-	<!-- list of script files -->
-	<!--[if !IE]> -->
-	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.min.js"></script> --%>
-	<!-- <![endif]-->
-	<!--[if lte IE 9]>
-	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
-   	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery1x.min.js"></script> --%>
-  	<![endif]-->
-
-	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/bootstrap.min.js"></script>
-
-	<!-- ie8 canvas if required for plugins such as charts, etc -->
-	<!--[if lte IE 8]>
-   	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/excanvas.min.js"></script>
-  	<![endif]-->
-
-	<!-- 顺序上在这里写插件js -->
-	<%-- <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/plugin1.min.js"></script> --%>
-
-
-	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-elements.min.js"></script>
-	<script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace.min.js"></script>
+	
 
 
 </body>
