@@ -40,8 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title><tiles:getAsString name="title" /></title>
 
 
-
-
+<link href="http://apps.bdimg.com/libs/animate.css/3.1.0/animate.min.css" rel="stylesheet" />
 
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <%-- <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/font-awesome.min.css" rel="stylesheet" /> --%>
@@ -65,8 +64,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if lte IE 9]>
  <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/ace-ie.min.css" rel="stylesheet" />
  <![endif]-->
-
-
 
 
 

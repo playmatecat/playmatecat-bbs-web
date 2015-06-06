@@ -47,7 +47,7 @@ public class TestCtrl {
     
     @RequestMapping("/ace")
     public ModelAndView ace(Model model) {
-        ModelAndView mav = new ModelAndView("module.auth.test");
+        ModelAndView mav = new ModelAndView("module.auth.custom");
         return mav;
     }
     
