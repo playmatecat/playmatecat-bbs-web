@@ -292,9 +292,6 @@
         return html;
     }
     var renderPerPage = function (text, value) {
-    	if(typeof(text) === 'string') {
-    		text = text.replace(/{pageIndex}/g, value);
-    	}
         return $("<li><a data-page-index='" + value + "'>" + text + "</a></li>");
     }
     var getPageCount = function (total, pageSize) {

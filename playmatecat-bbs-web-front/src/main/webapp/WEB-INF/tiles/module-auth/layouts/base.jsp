@@ -100,7 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%-- jquery datatable (感觉不太好用)
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.min.js"></script>
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script> --%>
-    <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6.js"></script>
+    <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6-custom.min.js"></script>
     
 
 
