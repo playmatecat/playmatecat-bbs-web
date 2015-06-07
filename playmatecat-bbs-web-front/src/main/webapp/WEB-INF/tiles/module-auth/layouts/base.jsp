@@ -40,8 +40,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title><tiles:getAsString name="title" /></title>
 
 
-<link href="http://apps.bdimg.com/libs/animate.css/3.1.0/animate.min.css" rel="stylesheet" />
-
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <%-- <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/font-awesome.min.css" rel="stylesheet" /> --%>
 <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -65,6 +63,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/ace-ie.min.css" rel="stylesheet" />
  <![endif]-->
 
+
+<!-- 此处写入插件的 css -->
+<link href="http://apps.bdimg.com/libs/animate.css/3.1.0/animate.min.css" rel="stylesheet" />
+<link href="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination.min.css" rel="stylesheet">
 
 
 <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-extra.min.js"></script>
@@ -95,8 +97,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <![endif]-->
 
     <!-- 顺序上在这里写插件js -->
+    <%-- jquery datatable (感觉不太好用)
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.min.js"></script>
-    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script> --%>
+    <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6.js"></script>
+    
 
 
     <!-- 顺序上这里写ace自带插件 -->

@@ -24,7 +24,7 @@
 	<div id="main-content" class="col-xs-12">
 		<!-- page content goes here -->
 
-		<div>
+		<div class="animated fadeIn">
 			<table id="sample-table-2" class="table table-striped table-bordered table-hover">
 				<thead>
 					<tr>
@@ -155,7 +155,19 @@
 
 				</tbody>
 			</table>
+			
+			<div id="page1" class="m-pagination pull-right"></div>
 		</div>
+
+
+
+
+
+
+
+
+
+
 
 
 	</div>
@@ -164,26 +176,35 @@
 
 
 <!-- inline scripts related to this page -->
-        <script type="text/javascript">
-            $(document).ready(function(){
-            	var myTable = $('#sample-table-2').dataTable({
-            	    /**
-            	    sScrollY: "200px",//enable vertical scrolling
-            	    sScrollX: "100%",
-            	    sScrollXInner: "120%",//enable horizintal scrolling with its content 120% of its container
-            	    bScrollCollapse: true,
-            	    */
+<style type="text/css">
+.pc-page-icon {
+    margin-top:10px;
+}
+</style>
+<script type="text/javascript">
+$("#page1").page({
+    total: 100,
+    pageBtnCount:7,
+    firstBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-backward"></i>',
+    lastBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-forward"></i>',
+    prevBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-left"></i>',
+    nextBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-right"></i>',
+    showInfo: true,
+    showJump: true,
+    jumpBtnText:'跳转',
+    showPageSizes: false,
+    infoFormat: '第{start}到{end}条，共{total}条'
+});
 
-            	    bAutoWidth: false,//for better responsiveness
-            	    aoColumns: [
-            	      { "bSortable": false },
-            	      null, null,null, null, null,
-            	      { "bSortable": false }
-            	    ]
-            	 });
-            });
-        </script>
-        
+$(document).on('click', 'th input:checkbox' , function(){
+    var that = this;
+    $(this).closest('table').find('tr > td:first-child input:checkbox')
+    .each(function(){
+        this.checked = that.checked;
+        $(this).closest('tr').toggleClass('selected');
+    });
+});
+</script>
         
         
         
