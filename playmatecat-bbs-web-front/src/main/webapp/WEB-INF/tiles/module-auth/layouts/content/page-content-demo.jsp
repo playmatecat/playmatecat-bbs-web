@@ -177,24 +177,38 @@
 
 <!-- inline scripts related to this page -->
 <style type="text/css">
+/*分页图标*/
 .pc-page-icon {
-    margin-top:10px;
+	margin-top: 10px;
 }
 </style>
 <script type="text/javascript">
-$("#page1").page({
-    total: 100,
-    pageBtnCount:7,
-    firstBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-backward"></i>',
-    lastBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-forward"></i>',
-    prevBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-left"></i>',
-    nextBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-right"></i>',
-    showInfo: true,
-    showJump: true,
-    jumpBtnText:'跳转',
-    showPageSizes: false,
-    infoFormat: '第{start}到{end}条，共{total}条'
+
+$(document).ready(function(){
+	initPagination();
 });
+
+function initPagination() {
+	var sreenPageBtnCount = 7;
+	var screenShowJump = true;
+    if(window.screen.width < 767) {
+        sreenPageBtnCount = 5;
+        screenShowJump =false;
+    }
+    $("#page1").page({
+        total: 100,
+        pageBtnCount:sreenPageBtnCount,
+        firstBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-backward"></i>',
+        lastBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-forward"></i>',
+        prevBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-left"></i>',
+        nextBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-right"></i>',
+        showInfo: true,
+        showJump: screenShowJump,
+        jumpBtnText:'跳转',
+        showPageSizes: false,
+        infoFormat: '第{start}到{end}条，共{total}条'
+    });
+}
 
 $(document).on('click', 'th input:checkbox' , function(){
     var that = this;
