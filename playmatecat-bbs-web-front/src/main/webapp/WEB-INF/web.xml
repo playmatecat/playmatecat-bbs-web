@@ -55,6 +55,12 @@
         <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener
         </listener-class>
     </listener>
+    
+    <!-- mina通信件初始化的contextListener -->
+    <listener>
+        <listener-class>com.playmatecat.mina.servletListener.MinaClientContextListener
+        </listener-class>
+    </listener>
 
 	<!-- log4j2 filter-begin -->
 	<filter>
