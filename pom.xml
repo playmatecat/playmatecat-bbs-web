@@ -7,8 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>playmatecat-bbs-web-front</module>
-		<module>playmatecat-bbs-authorization</module>
+		<module>playmatecat-bbs-web-core</module>
+		<module>playmatecat-bbs-web-admin</module>
 	</modules>
 	
 	<!-- <properties>

@@ -8,7 +8,7 @@
 		<artifactId>playmatecat-bbs-web</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>playmatecat-bbs-web-front</artifactId>
+	<artifactId>playmatecat-bbs-web-core</artifactId>
 	<packaging>war</packaging>
 
 	<profiles>
@@ -80,7 +80,7 @@
 		<!-- 外部工程依赖 -->
         <dependency>
             <groupId>com.playmatecat</groupId>
-            <artifactId>playmatecat-bbs-authorization</artifactId>
+            <artifactId>playmatecat-bbs-web-admin</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 	</dependencies>

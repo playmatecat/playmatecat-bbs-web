@@ -6,7 +6,7 @@
 		<artifactId>playmatecat-bbs-web</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>playmatecat-bbs-authorization</artifactId>
+	<artifactId>playmatecat-bbs-web-admin</artifactId>
 	<packaging>jar</packaging>
 
 	<profiles>
