@@ -144,7 +144,11 @@
 
 
 
-
+				<form method="post" action="/testPut">
+					<input type="hidden" name="_method" value="delete" />  
+					<input type="hidden" value="abc" name="test">
+					<button type="submit">确定</button>
+				</form>
 
 
 

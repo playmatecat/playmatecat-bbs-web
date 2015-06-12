@@ -1,9 +1,12 @@
 package com.playmatecat.project.moduleName;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,10 +54,17 @@ public class TestCtrl {
         return mav;
     }
     
+    @RequestMapping(value="/testPut",method=RequestMethod.PUT)
+    public ModelAndView testPut(HttpServletRequest request, Model model) {
+        System.out.println("成功进行了put!!!!!!!!!!!!!!!!!!!!!!" + request.getParameter("test"));
+        ModelAndView mav = new ModelAndView("module.auth.custom");
+        return mav;
+    }
     
-    @RequestMapping("/error-404")
-    public ModelAndView error404(Model model) {
-        ModelAndView mav = new ModelAndView("/common/error/404");
+    @RequestMapping(value="/testPut",method=RequestMethod.DELETE)
+    public ModelAndView testDelete(HttpServletRequest request, Model model) {
+        System.out.println("成功进行了delete!!!!!!!!!!!!!!!!!!!!!!" + request.getParameter("test"));
+        ModelAndView mav = new ModelAndView("module.auth.custom");
         return mav;
     }
 }
