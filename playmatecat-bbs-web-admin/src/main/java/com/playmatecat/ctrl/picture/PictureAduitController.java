@@ -1,4 +1,4 @@
-package com.playmatecat.picture;
+package com.playmatecat.ctrl.picture;
 
 public class PictureAduitController {
 

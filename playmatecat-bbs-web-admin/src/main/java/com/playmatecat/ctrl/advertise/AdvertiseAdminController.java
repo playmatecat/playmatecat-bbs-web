@@ -1,4 +1,4 @@
-package com.playmatecat.advertise;
+package com.playmatecat.ctrl.advertise;
 
 public class AdvertiseAdminController {
 

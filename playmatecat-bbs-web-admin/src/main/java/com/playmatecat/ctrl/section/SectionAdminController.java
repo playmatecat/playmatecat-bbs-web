@@ -1,4 +1,4 @@
-package com.playmatecat.section;
+package com.playmatecat.ctrl.section;
 
 public class SectionAdminController {
 

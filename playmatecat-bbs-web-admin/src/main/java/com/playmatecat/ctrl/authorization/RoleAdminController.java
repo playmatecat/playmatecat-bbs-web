@@ -1,4 +1,4 @@
-package com.playmatecat.authorization;
+package com.playmatecat.ctrl.authorization;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

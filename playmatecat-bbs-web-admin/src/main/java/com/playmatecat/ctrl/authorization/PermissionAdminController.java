@@ -1,4 +1,4 @@
-package com.playmatecat.authorization;
+package com.playmatecat.ctrl.authorization;
 
 public class PermissionAdminController {
 
