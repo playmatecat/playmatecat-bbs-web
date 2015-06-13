@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.playmatecat.bbs.bbsApp.admin.vo.AuthorizationVO;
 import com.playmatecat.database.bbs.Article;
 import com.playmatecat.domains.sysBBS.dto.RoleDTO;
-import com.playmatecat.mina.NioTransferAdapter;
+import com.playmatecat.mina.stucture.NioTransferAdapter;
 import com.playmatecat.utils.label.UtilsGUID;
 import com.playmatecat.utils.mina.UtilsNioClient;
 
@@ -32,7 +32,7 @@ public class RoleAdminController {
     public ModelAndView getRoles(AuthorizationVO authorizationVO, Model model,
             HttpServletRequest request, HttpServletResponse response) {
         
-        UtilsNioClient.write("bbs", new NioTransferAdapter("1", "{'content':'abc!!!!'}", Article.class) );
+//        UtilsNioClient.write("bbs", new NioTransferAdapter("1", "{'content':'abc!!!!'}", Article.class) );
         //call mina service
         List<RoleDTO> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
