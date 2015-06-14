@@ -35,6 +35,8 @@ public class RoleAdminController {
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
         RoleDTO roleDTO = new RoleDTO();
+        roleDTO.setPageNo(1);
+        roleDTO.setPageSize(10);
         authorizationVO.setRoleDTO(roleDTO);
         AuthorizationVO rtnVO = (AuthorizationVO) MinaServiceSupport.call("bbs",
                 "admin-authorizationCpt.getRolesPagination", authorizationVO);
