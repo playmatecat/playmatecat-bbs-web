@@ -16,6 +16,8 @@ import com.playmatecat.bbs.bbsApp.admin.vo.AuthorizationVO;
 import com.playmatecat.database.bbs.Article;
 import com.playmatecat.domains.sysBBS.dto.RoleDTO;
 import com.playmatecat.mina.stucture.NioTransferAdapter;
+import com.playmatecat.mina.stucture.RequestServiceAdapter;
+import com.playmatecat.mina.support.MinaServiceSupport;
 import com.playmatecat.utils.label.UtilsGUID;
 import com.playmatecat.utils.mina.UtilsNioClient;
 
@@ -30,9 +32,10 @@ public class RoleAdminController {
 
     @RequestMapping(value="/roles",method=RequestMethod.GET, produces="text/html")
     public ModelAndView getRoles(AuthorizationVO authorizationVO, Model model,
-            HttpServletRequest request, HttpServletResponse response) {
+            HttpServletRequest request, HttpServletResponse response) throws Exception {
         
 //        UtilsNioClient.write("bbs", new NioTransferAdapter("1", "{'content':'abc!!!!'}", Article.class) );
+        MinaServiceSupport.call("bbs", new RequestServiceAdapter("1", "{'content':'abc!!!!'}", Article.class), Article.class);
         //call mina service
         List<RoleDTO> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
