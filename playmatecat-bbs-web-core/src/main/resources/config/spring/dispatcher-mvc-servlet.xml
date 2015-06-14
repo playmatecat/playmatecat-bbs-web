@@ -85,6 +85,7 @@
 				<prop key="org.apache.shiro.authz.UnauthenticatedException">common/error/403</prop>
 				<prop key="com.playmatecat.spring.exception.NotFoundPermException">common/error/403</prop>
 				<prop key="com.playmatecat.spring.exception.NotFoundURIException">common/error/404</prop>
+				<prop key="java.lang.NullPointerException">common/error/500</prop>
 			</props>
 		</property>
 		<!-- 定义异常statusCode -->

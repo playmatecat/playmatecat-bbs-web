@@ -34,19 +34,13 @@ public class RoleAdminController {
     public ModelAndView getRoles(AuthorizationVO authorizationVO, Model model,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-//        UtilsNioClient.write("bbs", new NioTransferAdapter("1", "{'content':'abc!!!!'}", Article.class) );
-        MinaServiceSupport.call("bbs", "userCpt.testCall", authorizationVO);
-        //call mina service
-        List<RoleDTO> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            RoleDTO role = new RoleDTO();
-            role.setId(i);
-            role.setName(UtilsGUID.getGUID());
-            list.add(role);
-        }
+        RoleDTO roleDTO = new RoleDTO();
+        authorizationVO.setRoleDTO(roleDTO);
+        AuthorizationVO rtnVO = (AuthorizationVO) MinaServiceSupport.call("bbs",
+                "admin-authorizationCpt.getRolesPagination", authorizationVO);
+      
         
-        authorizationVO.setRoleList(list);
-        
+        authorizationVO = rtnVO;
         ModelAndView mav = new ModelAndView("module.auth.custom");
         return mav;
     }
