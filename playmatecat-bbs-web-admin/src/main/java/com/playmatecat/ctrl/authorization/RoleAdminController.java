@@ -35,7 +35,7 @@ public class RoleAdminController {
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
 //        UtilsNioClient.write("bbs", new NioTransferAdapter("1", "{'content':'abc!!!!'}", Article.class) );
-        MinaServiceSupport.call("bbs", new RequestServiceAdapter("1", "{'content':'abc!!!!'}", Article.class), Article.class);
+        MinaServiceSupport.call("bbs", "userCpt.testCall", authorizationVO);
         //call mina service
         List<RoleDTO> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
