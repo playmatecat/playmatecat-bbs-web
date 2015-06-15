@@ -43,7 +43,8 @@ public class RoleAdminController {
       
         
         authorizationVO = rtnVO;
-        ModelAndView mav = new ModelAndView("module.auth.custom");
+        ModelAndView mav = new ModelAndView("admin.authorization.role-admin.roles");
+        model.addAttribute("authorizationVO", authorizationVO);
         return mav;
     }
     

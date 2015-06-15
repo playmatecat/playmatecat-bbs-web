@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<!-- 布局基础模板 ,其他的都应该继承于这个-->
+	<definition name="admin.layouts.base" template="/WEB-INF/tiles/module-admin/layouts/base.jsp">
+        <put-attribute name="description" value="" />
+        <put-attribute name="keywords" value="" />
+        <put-attribute name="title" value="BBS管理平台" />
+        <put-attribute name="navbar" value="/WEB-INF/tiles/module-admin/layouts/navbar/navbar-custom.jsp" />
+		<put-attribute name="sidebar" value="/WEB-INF/tiles/module-admin/layouts/sidebar/sidebar-custom.jsp" />
+    </definition>
+
+    <!-- 测试页面 -->
+    <definition name="module.auth.test" extends="admin.layouts.base">
+		<put-attribute name="navbar" value="/WEB-INF/tiles/module-admin/layouts/navbar/navbar-custom.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/tiles/module-admin/layouts/sidebar/sidebar-custom.jsp" />
+    </definition>
+    
+    
+    <!-- 测试页面 -->
+    <definition name="module.auth.custom" extends="admin.layouts.base">
+        <put-attribute name="title" value="BBS管理平台" />
+        <put-attribute name="navbar" value="/WEB-INF/tiles/module-admin/layouts/navbar/navbar-custom.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/tiles/module-admin/layouts/sidebar/sidebar-custom.jsp" />
+        <put-attribute name="page-content" value="/WEB-INF/tiles/module-admin/layouts/content/page-content-demo.jsp" />
+    </definition>
+    
+
+    <!-- 角色管理 -->
+    <definition name="admin.authorization.role-admin.roles" extends="admin.layouts.base">
+        <put-attribute name="page-content" value="/WEB-INF/jsp/module-admin/authorization/role-admin.roles.jsp" />
+    </definition>
+
+</tiles-definitions>
