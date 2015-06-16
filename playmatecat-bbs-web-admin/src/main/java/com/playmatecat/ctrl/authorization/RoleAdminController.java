@@ -37,6 +37,7 @@ public class RoleAdminController {
         RoleDTO roleDTO = new RoleDTO();
         roleDTO.setPageNo(1);
         roleDTO.setPageSize(10);
+        roleDTO.setIsDeleted(false);
         authorizationVO.setRoleDTO(roleDTO);
         AuthorizationVO rtnVO = (AuthorizationVO) MinaServiceSupport.call("bbs",
                 "admin-authorizationCpt.getRolesPagination", authorizationVO);

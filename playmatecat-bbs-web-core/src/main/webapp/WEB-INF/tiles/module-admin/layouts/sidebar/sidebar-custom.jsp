@@ -54,7 +54,7 @@
 	
 	
 	<!-- 1级 -->
-	<li>
+	<li class="open">
 		<!-- 此处必须加dropdown-toggle子级才可以展开 -->
 		<a href="#" class="dropdown-toggle">
 			<i class="menu-icon fa fa-credit-card"></i>

@@ -31,13 +31,15 @@
 						<th class="center"><label class="position-relative"> <input type="checkbox" class="ace" /> <span class="lbl"></span>
 						</label></th>
 						<th>角色id</th>
-						
+						<th>名称</th>
+						<th>编码</th>
+						<th>描述</th>
 						<th><!-- 操作控件 --></th>
 					</tr>
 				</thead>
 
 				<tbody>
-				    <c:forEach items="${authorizationVO.rolePage.list}" var="rolePageList">
+				    <c:forEach items="${authorizationVO.rolePage.list}" var="roleList">
 					<tr>
 					    <!-- checkbox -->
 						<td class="center">
@@ -45,9 +47,10 @@
 							<span class="lbl"></span>
 							</label>
 						</td>
-						<td>${rolePageList.id}</td>
-						
-
+						<td>${roleList.id}</td>
+						<td>${roleList.name}</td>
+						<td>${roleList.code}</td>
+						<td>${roleList.description}</td>
 						<!-- <td><a href="#">app.com</a></td> -->
 						<!-- <td>$45</td>
 						<td class="hidden-480">3,330</td>
