@@ -54,7 +54,7 @@
 	
 	
 	<!-- 1级 -->
-	<li class="open">
+	<li>
 		<!-- 此处必须加dropdown-toggle子级才可以展开 -->
 		<a href="#" class="dropdown-toggle">
 			<i class="menu-icon fa fa-credit-card"></i>
@@ -70,7 +70,7 @@
 			<!-- second level item -->
 			<!-- 如果需要选中在li上加上class="active",其他li.active remove active -->
 			<li>
-				<a href="#">
+				<a data-url="authorization/role-admin/roles" href="#authorization/role-admin/roles">
 					<i class="menu-icon fa fa-caret-right"></i>角色管理
 				</a>
 			</li>
@@ -271,5 +271,25 @@
 	<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 </div>
 
+<!-- 此处处理ajax路由跳转 -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#base-page-content').ace_ajax({
+			'update_active' : true,
+			//必须项
+			'close_active' : true,
+
+			'content_url' : function(hash) {
+				//var path = document.location.pathname;
+				return hash
+			},
+
+			'default_url' : '',//default hash
+			'loading_icon' : 'fa-cog fa-2x blue'
+		}).on('ajaxloaddone', function() {
+			$('#base-page-content').ace_ajax('stopLoading', true);
+		});
+	});
+</script>
 
 

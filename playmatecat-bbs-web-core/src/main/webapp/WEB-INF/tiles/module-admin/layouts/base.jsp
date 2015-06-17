@@ -134,8 +134,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tiles:insertAttribute name="breadcrumbs" ignore="true" />
 			</div>
 
-			<div class="page-content">     
-                <tiles:insertAttribute name="page-content" ignore="true" />
+			<div class="page-content">
+			     <!-- ajaxload必须里面再套这个DIV -->
+			     <div id="base-page-content">
+			     </div>
+                <%-- <tiles:insertAttribute name="page-content" ignore="true" /> --%>
 			</div>
 			<!-- /.page-content -->
 		</div>
@@ -152,7 +155,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	</div>
-		<!-- /.main-container -->
+	<!-- /.main-container -->
 
 
 

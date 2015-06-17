@@ -28,6 +28,10 @@
         <put-attribute name="page-content" value="/WEB-INF/tiles/module-admin/layouts/content/page-content-demo.jsp" />
     </definition>
     
+    
+    <!-- index -->
+    <definition name="admin.index" extends="admin.layouts.base">
+    </definition>
 
     <!-- 角色管理 -->
     <definition name="admin.authorization.role-admin.roles" extends="admin.layouts.base">

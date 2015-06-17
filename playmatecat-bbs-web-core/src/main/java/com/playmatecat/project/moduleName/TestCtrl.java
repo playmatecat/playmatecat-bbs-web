@@ -50,21 +50,21 @@ public class TestCtrl {
     
     @RequestMapping("/ace")
     public ModelAndView ace(Model model) {
-        ModelAndView mav = new ModelAndView("module.auth.custom");
+        ModelAndView mav = new ModelAndView("module.admin.custom");
         return mav;
     }
     
     @RequestMapping(value="/testPut",method=RequestMethod.PUT)
     public ModelAndView testPut(HttpServletRequest request, Model model) {
         System.out.println("成功进行了put!!!!!!!!!!!!!!!!!!!!!!" + request.getParameter("test"));
-        ModelAndView mav = new ModelAndView("module.auth.custom");
+        ModelAndView mav = new ModelAndView("module.admin.custom");
         return mav;
     }
     
     @RequestMapping(value="/testPut",method=RequestMethod.DELETE)
     public ModelAndView testDelete(HttpServletRequest request, Model model) {
         System.out.println("成功进行了delete!!!!!!!!!!!!!!!!!!!!!!" + request.getParameter("test"));
-        ModelAndView mav = new ModelAndView("module.auth.custom");
+        ModelAndView mav = new ModelAndView("module.admin.custom");
         return mav;
     }
 }
