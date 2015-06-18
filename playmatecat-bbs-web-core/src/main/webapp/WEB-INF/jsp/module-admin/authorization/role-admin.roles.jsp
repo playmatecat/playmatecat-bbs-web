@@ -14,8 +14,10 @@
 --%>
 
 <!-- 顶部内容标题(在breadcrumbs下方) -->
-<div class="page-header">
-	<!-- page header goes here -->
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">角色管理</h3>
+	</div>
 </div>
 
 
@@ -25,216 +27,114 @@
 		<!-- page content goes here -->
 
 		<div class="animated fadeIn">
-			<table id="listTable" class="table table-striped table-bordered table-hover">
-				<thead>
-					<tr>
-						<th class="center"><label class="position-relative"> <input type="checkbox" class="ace" /> <span class="lbl"></span>
-						</label></th>
-						<th>名称</th>
-						<th>编码</th>
-						<th>描述</th>
-						<th><!-- 操作控件 --></th>
-					</tr>
-				</thead>
 
-				<tbody>
-				    <c:forEach items="${authorizationVO.rolePage.list}" var="roleList">
-					<tr>
-					    <!-- checkbox -->
-						<td class="center">
-							<label class="position-relative"> <input type="checkbox" class="ace" /> 
-							<span class="lbl"></span>
-							</label>
-						</td>
-						<td><input type="hidden" value="${roleList.id}" />${roleList.name}</td>
-						<td>${roleList.code}</td>
-						<td>${roleList.description}</td>
-						<!-- <td><a href="#">app.com</a></td> -->
-						<!-- <td>$45</td>
-						<td class="hidden-480">3,330</td>
-						<td>Feb 12</td>
-
-						<td class="hidden-480"><span class="label label-sm label-warning">Expiring</span></td>
- -->
+			<div id="btnRow" class="well">
+			    <button class="btn btn-primary btn-info  btn-sm">
+                    <i class="ace-icon fa fa-search-plus align-top bigger-125"></i> 查询
+                </button>
+				<button class="btn btn-warning btn-sm">
+					<i class="ace-icon fa fa-plus-square-o align-top bigger-125"></i> 新增
+				</button>
+				<button class="btn btn-danger btn-sm">
+					<i class="ace-icon fa fa-trash-o align-top bigger-125"></i> 删除
+				</button>
+			</div>
 
 
-                        <!-- 操作控件列 -->
-						<td>
-							<div class="hidden-sm hidden-xs action-buttons">
-								<a class="blue" href="#"> <i class="ace-icon fa fa-search-plus bigger-130"></i>
-								</a> <a class="green" href="#"> <i class="ace-icon fa fa-pencil bigger-130"></i>
-								</a> <a class="red" href="#"> <i class="ace-icon fa fa-trash-o bigger-130"></i>
-								</a>
-							</div>
+			<div class="row">
+				<div id="tableRow" class="col-xs-12">
+					    <table id="listTable" class="table table-striped table-bordered table-hover">
+		                <thead>
+		                    <tr>
+		                        <th class="center"><label class="position-relative"> <input type="checkbox" class="ace" /> <span class="lbl"></span>
+		                        </label></th>
+		                        <th>名称</th>
+		                        <th>编码</th>
+		                        <th>描述</th>
+		                        <th><!-- 操作控件 --></th>
+		                    </tr>
+		                </thead>
+		
+		                <tbody>
+		                    <c:forEach items="${authorizationVO.rolePage.list}" var="roleList">
+		                    <tr>
+		                        <!-- checkbox -->
+		                        <td class="center">
+		                            <label class="position-relative"> <input type="checkbox" class="ace" /> 
+		                            <span class="lbl"></span>
+		                            </label>
+		                        </td>
+		                        <td><input type="hidden" value="${roleList.id}" />${roleList.name}</td>
+		                        <td>${roleList.code}</td>
+		                        <td>${roleList.description}</td>
+		                        <!-- <td><a href="#">app.com</a></td> -->
+		                        <!-- <td>$45</td>
+		                        <td class="hidden-480">3,330</td>
+		                        <td>Feb 12</td>
+		
+		                        <td class="hidden-480"><span class="label label-sm label-warning">Expiring</span></td>
+		 -->
+		
+		
+		                        <!-- 操作控件列 -->
+		                        <td>
+		                            <div class="hidden-sm hidden-xs action-buttons">
+		                                <a class="green" href="#"> <i class="ace-icon fa fa-pencil bigger-130">编辑</i>
+		                                </a>
+		                            </div>
+		                            
+		                            <!-- 适配手机收缩按钮 -->
+		                            <div class="hidden-md hidden-lg">
+		                                <div class="inline position-relative">
+		                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+		                                        <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+		                                    </button>
+		
+		                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+		                                        <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit"> <span class="green"> <i
+		                                                    class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+		                                            </span>
+		                                        </a></li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                </c:forEach>
+		
+		
+		
+		
+		
+		            <!--    <form method="post" action="/testPut">
+		                    <input type="hidden" name="_method" value="delete" />  
+		                    <input type="hidden" value="abc" name="test">
+		                    <button type="submit">确定</button>
+		                </form> -->
+		
+		
+		
+		
+		
+		
+		
+		
+		                </tbody>
+		            </table>
+		            <div id="page1" class="m-pagination pull-right"></div>
+				</div>
+				<!-- /#tableRow -->
+			</div>
 
-							<div class="hidden-md hidden-lg">
-								<div class="inline position-relative">
-									<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-										<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-									</button>
-
-									<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-										<li><a href="#" class="tooltip-info" data-rel="tooltip" title="View"> <span class="blue"> <i
-													class="ace-icon fa fa-search-plus bigger-120"></i>
-											</span>
-										</a></li>
-
-										<li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit"> <span class="green"> <i
-													class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-											</span>
-										</a></li>
-
-										<li><a href="#" class="tooltip-error" data-rel="tooltip" title="Delete"> <span class="red"> <i
-													class="ace-icon fa fa-trash-o bigger-120"></i>
-											</span>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-						</td>
-					</tr>
-                </c:forEach>
-
-
-
-
-
-			<!-- 	<form method="post" action="/testPut">
-					<input type="hidden" name="_method" value="delete" />  
-					<input type="hidden" value="abc" name="test">
-					<button type="submit">确定</button>
-				</form> -->
-
-
-
-
-
-
-
-
-				</tbody>
-			</table>
-			
-			<div id="page1" class="m-pagination pull-right"></div>
 		</div>
 
-<a href="#modal-table" role="button" class="green" data-toggle="modal"> Table Inside a Modal Box </a>
-
-<div id="modal-table" class="modal fade" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header no-padding">
-                        <div class="table-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                <span class="white">&times;</span>
-                            </button>
-                            Results for "Latest Registered Domains
-                        </div>
-                    </div>
-
-                    <div class="modal-body no-padding">
-                        <table class="table table-striped table-bordered table-hover no-margin-bottom no-border-top">
-                            <thead>
-                                <tr>
-                                    <th>Domain</th>
-                                    <th>Price</th>
-                                    <th>Clicks</th>
-
-                                    <th>
-                                        <i class="ace-icon fa fa-clock-o bigger-110"></i>
-                                        Update
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="#">ace.com</a>
-                                    </td>
-                                    <td>$45</td>
-                                    <td>3,330</td>
-                                    <td>Feb 12</td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <a href="#">base.com</a>
-                                    </td>
-                                    <td>$35</td>
-                                    <td>2,595</td>
-                                    <td>Feb 18</td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <a href="#">max.com</a>
-                                    </td>
-                                    <td>$60</td>
-                                    <td>4,400</td>
-                                    <td>Mar 11</td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <a href="#">best.com</a>
-                                    </td>
-                                    <td>$75</td>
-                                    <td>6,500</td>
-                                    <td>Apr 03</td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <a href="#">pro.com</a>
-                                    </td>
-                                    <td>$55</td>
-                                    <td>4,250</td>
-                                    <td>Jan 21</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="modal-footer no-margin-top">
-                        <button class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
-                            <i class="ace-icon fa fa-times"></i>
-                            Close
-                        </button>
-
-                        <ul class="pagination pull-right no-margin">
-                            <li class="prev disabled">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-angle-double-left"></i>
-                                </a>
-                            </li>
-
-                            <li class="active">
-                                <a href="#">1</a>
-                            </li>
-
-                            <li>
-                                <a href="#">2</a>
-                            </li>
-
-                            <li>
-                                <a href="#">3</a>
-                            </li>
-
-                            <li class="next">
-                                <a href="#">
-                                    <i class="ace-icon fa fa-angle-double-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
+<!-- <a href="#modal-table" role="button" class="green" data-toggle="modal"> Table Inside a Modal Box </a> -->
 
 
 
 
+
+<a id="id-btn-dialog1"> Table Inside a Modal Box </a>
 
 
 
@@ -254,6 +154,63 @@
 	</div>
 	<!-- /#main-content -->
 </div>
+
+
+
+
+
+
+
+
+
+<div id="modal-table" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header no-padding">
+                       head
+                    </div>
+
+                    <div class="modal-body no-padding">
+                       body
+                    </div>
+
+                    <div class="modal-footer no-margin-top">
+                        footer
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div>
+
+
+
+
+
+
+
+<div id="dialog-message" class="hide">
+                                            <p>
+                                                This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+                                            </p>
+
+                                            <div class="hr hr-12 hr-double"></div>
+
+                                            <p>
+                                                Currently using
+                                                <b>36% of your storage space</b>.
+                                            </p>
+                                        </div><!-- #dialog-message -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- inline scripts related to this page -->
@@ -331,9 +288,54 @@ var commons = {
 
 
 $(document).ready(function(){
+
 	initPagination();
 	//表单全选事件
 	$("#listTable").on('click', 'input:checkbox', commons.table_checkbox_click);
+	
+	
+	
+	
+	
+	$( "#id-btn-dialog1" ).on('click', function(e) {
+        e.preventDefault();
+        
+        //api:http://api.jqueryui.com/dialog/
+        //effect:effectBlind,effectBounce,effectClip,effectDrop,effectExplode,effectFade,effectFold,effectHighlight,effectSize,effectScale
+        //effectPuff,effectPulsate,effectShake,effectSlide,effectTransfer
+        var dialog = $( "#dialog-message" ).removeClass('hide').dialog({
+            modal: true,
+            title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
+            title_html: true,
+            show: {
+                effect: "puff",
+                duration: 300
+            },
+            hide: {
+                effect: "explode",
+                duration: 300
+            },
+            buttons: [ 
+                {
+                    text: "Cancel",
+                    "class" : "btn btn-xs",
+                    click: function() {
+                        $( this ).dialog( "close" ); 
+                    } 
+                },
+                {
+                    text: "OK",
+                    "class" : "btn btn-primary btn-xs",
+                    click: function() {
+                        $( this ).dialog( "close" ); 
+                    } 
+                }
+            ]
+        });
+	
+	});
+	
+	
 	
 });
 

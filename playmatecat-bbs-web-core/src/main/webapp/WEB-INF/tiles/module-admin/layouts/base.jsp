@@ -43,6 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <%-- <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/font-awesome.min.css" rel="stylesheet" /> --%>
 <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
 <!-- only if needed -->
 
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/ace-fonts.min.css" rel="stylesheet" />
@@ -100,6 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%-- jquery datatable (感觉不太好用)
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.min.js"></script>
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script> --%>
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6-custom.min.js"></script>
     
 
@@ -129,10 +131,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 
 		<div class="main-content">
-			<div class="breadcrumbs" id="breadcrumbs">
-				<%-- 顶部下方的breadcrumbs面包屑导航条 --%>
+			<%-- <div class="breadcrumbs" id="breadcrumbs">
+				顶部下方的breadcrumbs面包屑导航条
 				<tiles:insertAttribute name="breadcrumbs" ignore="true" />
-			</div>
+			</div> --%>
 
 			<div class="page-content">
 			     <!-- ajaxload必须里面再套这个DIV -->

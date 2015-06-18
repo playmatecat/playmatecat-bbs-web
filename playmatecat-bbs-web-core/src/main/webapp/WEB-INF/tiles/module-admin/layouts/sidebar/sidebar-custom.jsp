@@ -267,7 +267,7 @@
 
 
 <!-- sidebar底部按钮,将list缩进为缩略图标 -->
-<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse" style="z-index: 1;">
+<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 	<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 </div>
 
