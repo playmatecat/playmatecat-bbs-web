@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <%-- <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/font-awesome.min.css" rel="stylesheet" /> --%>
 <link href="http://apps.bdimg.com/libs/fontawesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="http://apps.bdimg.com/libs/jqueryui/1.9.2/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+<link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/jquery-ui.min.css" rel="stylesheet" />
 <!-- only if needed -->
 
 <link href="${ctx}/static/lib/ace-admin-v1.3.2/dist/css/ace-fonts.min.css" rel="stylesheet" />
@@ -67,7 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- 此处写入插件的 css -->
 <link href="http://apps.bdimg.com/libs/animate.css/3.1.0/animate.min.css" rel="stylesheet" />
-<link href="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination.min.css" rel="stylesheet">
+<%-- 不好用
+<link href="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination.min.css" rel="stylesheet"> --%>
+<link href="${ctx}/static/lib/jqPagination-1.4/css/jqpagination.css" rel="stylesheet">
 
 
 <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-extra.min.js"></script>
@@ -101,10 +103,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <%-- jquery datatable (感觉不太好用)
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.min.js"></script>
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery.dataTables.bootstrap.min.js"></script> --%>
-    <script src="http://apps.bdimg.com/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6-custom.min.js"></script>
-    
+    <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/jquery-ui.min.js"></script>
+    <%-- 不好用
+    <script src="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination-1.2.6-custom.min.js"></script> --%>
+    <script src="${ctx}/static/lib/jqPagination-1.4/js/jquery.jqpagination.min.js"></script>
 
+    <!-- 通用js -->
+    <script src="${ctx}/static/js/module-admin/common/common.js"></script>
+    <!-- 覆盖某些方法js -->
+    <script src="${ctx}/static/js/module-admin/common/override.js"></script>
 
     <!-- 顺序上这里写ace自带插件 -->
     <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-elements.min.js"></script>

@@ -56,7 +56,7 @@
 		                </thead>
 		
 		                <tbody>
-		                    <c:forEach items="${authorizationVO.rolePage.list}" var="roleList">
+		                    <c:forEach items="${rolePage.list}" var="roleList">
 		                    <tr>
 		                        <!-- checkbox -->
 		                        <td class="center">
@@ -121,7 +121,13 @@
 		
 		                </tbody>
 		            </table>
-		            <div id="page1" class="m-pagination pull-right"></div>
+
+					<div class="bigger-1x pagination pull-right">
+						<a href="#" class="first" data-action="first">&laquo;</a> <a href="#" class="previous" data-action="previous">&lsaquo;</a> <input type="text"
+							readonly="readonly" data-max-page="40" /> <a href="#" class="next" data-action="next">&rsaquo;</a> <a href="#" class="last" data-action="last">&raquo;</a>
+					</div>
+
+
 				</div>
 				<!-- /#tableRow -->
 			</div>
@@ -139,18 +145,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	</div>
 	<!-- /#main-content -->
 </div>
@@ -163,24 +157,6 @@
 
 
 
-<div id="modal-table" class="modal fade" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header no-padding">
-                       head
-                    </div>
-
-                    <div class="modal-body no-padding">
-                       body
-                    </div>
-
-                    <div class="modal-footer no-margin-top">
-                        footer
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div>
-
 
 
 
@@ -188,17 +164,17 @@
 
 
 <div id="dialog-message" class="hide">
-                                            <p>
-                                                This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
-                                            </p>
+    <p>
+        This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
+    </p>
 
-                                            <div class="hr hr-12 hr-double"></div>
+    <div class="hr hr-12 hr-double"></div>
 
-                                            <p>
-                                                Currently using
-                                                <b>36% of your storage space</b>.
-                                            </p>
-                                        </div><!-- #dialog-message -->
+    <p>
+        Currently using
+        <b>36% of your storage space</b>.
+    </p>
+</div><!-- #dialog-message -->
 
 
 
@@ -223,123 +199,96 @@
 <script type="text/javascript">
 
 
+/**
+ * 分页初始化函数
+ */
 function initPagination() {
-	var sreenPageBtnCount = 7;
-	var screenShowJump = true;
-    if(window.screen.width < 767) {
-        sreenPageBtnCount = 5;
-        screenShowJump =false;
-    }
-    $("#page1").page({
-        total: '${authorizationVO.rolePage.total}',
-        pageBtnCount:sreenPageBtnCount,
-        firstBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-backward"></i>',
-        lastBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-step-forward"></i>',
-        prevBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-left"></i>',
-        nextBtnText: '<i data-page-index="{pageIndex}" class="pc-page-icon fa fa-chevron-right"></i>',
-        showInfo: true,
-        showJump: screenShowJump,
-        jumpBtnText:'跳转',
-        showPageSizes: false,
-        infoFormat: '第{start}到{end}条，共{total}条'
+	$('.pagination').jqPagination({
+			link_string : '/?page={page_number}',
+			current_page : 1, //设置当前页 默认为1
+			max_page : 10, //设置最大页 默认为1
+			page_string : '{current_page}/{max_page}',
+			paged : function(pageNo) {
+				//按选择的pageNo跳转请求
+			}
+		});
+	}
+
+
+$(document).ready(function() {
+    //初始化分页
+    initPagination();
+    //表单全选事件
+    $('#listTable').on('click', 'input:checkbox', _pc_commons.table_checkbox_click);
+
+    $('#id-btn-dialog2').on('click', function() {
+    	$('#modal-table').modal('show');
     });
-}
-
-var commons = {
-		
-		/**
-		* 作用:自动处理全选单选
-		* 本函数绑定在table所有的checkbox上
-		*/
-		table_checkbox_click : function() {
-			//表头全选
-			if($(this).closest('thead').length > 0 && 
-					$(this)[0] == $(this).closest('table').find('thead> tr > th:first-child input:checkbox')[0]) {
-				//点击全选时统一切换状态
-			    var that = this;
-			    $(this).closest('table').find('tr > td:first-child input:checkbox')
-			    .each(function(){
-			        this.checked = that.checked;
-			        $(this).closest('tr').toggleClass('selected');
-			    });
-			}
-			
-			//单选
-			if($(this).closest('tbody').length > 0 && 
-					$(this)[0] == $(this).closest('tr').find('td:first-child input:checkbox')[0]) {
-				//检查是否全选
-				var all_checked = true;
-				//遍历tbody所有checkbox的状态
-				$(this).closest('tbody').find('tr > td:first-child input:checkbox')
-				.each(function(){
-					if(!this.checked) {
-						all_checked = false;
-						//终止循环
-						return false;
-					}
-				});
-				var allcheckElem =$(this).closest('table').find('thead > tr > th:first-child input:checkbox');
-				allcheckElem.prop("checked",all_checked);
-			}
-		}
-}
-
-
-
-
-$(document).ready(function(){
-
-	initPagination();
-	//表单全选事件
-	$("#listTable").on('click', 'input:checkbox', commons.table_checkbox_click);
-	
-	
-	
-	
-	
-	$( "#id-btn-dialog1" ).on('click', function(e) {
+    
+    
+    $('#id-btn-dialog1').on('click',
+    function(e) {
         e.preventDefault();
-        
+
         //api:http://api.jqueryui.com/dialog/
         //effect:effectBlind,effectBounce,effectClip,effectDrop,effectExplode,effectFade,effectFold,effectHighlight,effectSize,effectScale
         //effectPuff,effectPulsate,effectShake,effectSlide,effectTransfer
-        var dialog = $( "#dialog-message" ).removeClass('hide').dialog({
-            modal: true,
-            title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
-            title_html: true,
-            show: {
-                effect: "puff",
-                duration: 300
-            },
-            hide: {
-                effect: "explode",
-                duration: 300
-            },
-            buttons: [ 
-                {
+        
+        var options = {
+        		id : "dialog-message",
+        		buttons: [{
                     text: "Cancel",
-                    "class" : "btn btn-xs",
+                    "class": "btn btn-xs",
                     click: function() {
-                        $( this ).dialog( "close" ); 
-                    } 
+                        $(this).dialog("close");
+                    }
                 },
                 {
                     text: "OK",
-                    "class" : "btn btn-primary btn-xs",
+                    "class": "btn btn-primary btn-xs",
                     click: function() {
-                        $( this ).dialog( "close" ); 
-                    } 
-                }
-            ]
-        });
-	
-	});
-	
-	
-	
+                        $(this).dialog("close");
+                    }
+                }]
+        }
+        var dialog = _pc_commons.jqueryui_dialog(options);
+        
+//         var dialog = $("#dialog-message").removeClass('hide').dialog({
+//             modal: true,
+//             draggable: false,
+//             resizable: false,
+//             zIndex: 1000,
+//             width: 500,
+//             height: 500,
+//             title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
+//             title_html: true,
+//             show: {
+//                 effect: "puff",
+//                 duration: 300
+//             },
+//             hide: {
+//                 effect: "explode",
+//                 duration: 300
+//             },
+//             buttons: [{
+//                 text: "Cancel",
+//                 "class": "btn btn-xs",
+//                 click: function() {
+//                     $(this).dialog("close");
+//                 }
+//             },
+//             {
+//                 text: "OK",
+//                 "class": "btn btn-primary btn-xs",
+//                 click: function() {
+//                     $(this).dialog("close");
+//                 }
+//             }]
+//         });
+
+    });
+
 });
-
-
 </script>
         
         

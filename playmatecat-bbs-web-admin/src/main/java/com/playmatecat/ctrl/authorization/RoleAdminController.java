@@ -44,8 +44,9 @@ public class RoleAdminController {
       
         
         authorizationVO = rtnVO;
+        //页面写入model方便读取
+        model.addAttribute("rolePage", authorizationVO.getRolePage());
         ModelAndView mav = new ModelAndView("/module-admin/authorization/role-admin.roles");
-        model.addAttribute("authorizationVO", authorizationVO);
         return mav;
     }
     
