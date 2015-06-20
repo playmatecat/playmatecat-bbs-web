@@ -28,17 +28,33 @@
 
 		<div class="animated fadeIn">
 
-			<div id="btnRow" class="well">
-			    <button class="btn btn-primary btn-info  btn-sm">
-                    <i class="ace-icon fa fa-search-plus align-top bigger-125"></i> 查询
-                </button>
-				<button class="btn btn-warning btn-sm">
-					<i class="ace-icon fa fa-plus-square-o align-top bigger-125"></i> 新增
-				</button>
-				<button class="btn btn-danger btn-sm">
-					<i class="ace-icon fa fa-trash-o align-top bigger-125"></i> 删除
-				</button>
+		<div id="btnRow" class="well">
+			<form class="form-inline row">
+				<div class="form-group col-lg-2">
+					<label>名称：</label><input class="input-sm" type="text" placeholder="名称" />
+				</div>
+				<div class="form-group col-lg-2">
+					<label>编码：</label><input class="input-sm" type="text" placeholder="编码" />
+				</div>
+				<div class="form-group col-lg-2">
+                    <label>描述：</label><input class="input-sm" type="text" placeholder="描述" />
+                </div>
+			</form>
+		    
+		    <div class="form-control-static row">
+		        <div class="col-lg-12">
+				    <button class="btn btn-primary btn-info  btn-sm">
+			                  <i class="ace-icon fa fa-search-plus align-top bigger-125"></i> 查询
+			              </button>
+					<button class="btn btn-warning btn-sm" onclick="_role_admin.add_role()">
+						<i class="ace-icon fa fa-plus-square-o align-top bigger-125"></i> 新增
+					</button>
+					<button class="btn btn-danger btn-sm">
+						<i class="ace-icon fa fa-trash-o align-top bigger-125"></i> 删除
+					</button>
+				</div>
 			</div>
+		</div>
 
 
 			<div class="row">
@@ -79,7 +95,7 @@
 		                        <!-- 操作控件列 -->
 		                        <td>
 		                            <div class="hidden-sm hidden-xs action-buttons">
-		                                <a class="green" href="#"> <i class="ace-icon fa fa-pencil bigger-130">编辑</i>
+		                                <a onclick="_role_admin.edit_role(this)" class="green" href="javascript:void(0);"> <i class="ace-icon fa fa-pencil bigger-120">编辑</i>
 		                                </a>
 		                            </div>
 		                            
@@ -91,7 +107,7 @@
 		                                    </button>
 		
 		                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-		                                        <li><a href="#" class="tooltip-success" data-rel="tooltip" title="Edit"> <span class="green"> <i
+		                                        <li><a onclick="_role_admin.edit_role(this)" href="javascript:void(0);" class="tooltip-success" data-rel="tooltip" title="编辑"> <span class="green"> <i
 		                                                    class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 		                                            </span>
 		                                        </a></li>
@@ -122,7 +138,7 @@
 		                </tbody>
 		            </table>
 
-					<div class="bigger-1x pagination pull-right">
+					<div id="role-pagination" class="bigger-1x pagination pull-right">
 						<a href="#" class="first" data-action="first">&laquo;</a> <a href="#" class="previous" data-action="previous">&lsaquo;</a> <input type="text"
 							readonly="readonly" data-max-page="40" /> <a href="#" class="next" data-action="next">&rsaquo;</a> <a href="#" class="last" data-action="last">&raquo;</a>
 					</div>
@@ -133,15 +149,6 @@
 			</div>
 
 		</div>
-
-<!-- <a href="#modal-table" role="button" class="green" data-toggle="modal"> Table Inside a Modal Box </a> -->
-
-
-
-
-
-<a id="id-btn-dialog1"> Table Inside a Modal Box </a>
-
 
 
 
@@ -164,16 +171,18 @@
 
 
 <div id="dialog-message" class="hide">
-    <p>
-        This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.
-    </p>
+	<div class="row">
+		<div class="form-group col-lg-12">
+			<label>名称：</label><input class="input-sm" type="text" placeholder="名称" />
+		</div>
+		<div class="form-group col-lg-12">
+			<label>编码：</label><input class="input-sm" type="text" placeholder="编码" />
+		</div>
+		<div class="form-group col-lg-12">
+			<label>描述：</label><input class="input-sm" type="text" placeholder="描述" />
+		</div>
+	</div>
 
-    <div class="hr hr-12 hr-double"></div>
-
-    <p>
-        Currently using
-        <b>36% of your storage space</b>.
-    </p>
 </div><!-- #dialog-message -->
 
 
@@ -191,52 +200,30 @@
 
 <!-- inline scripts related to this page -->
 <style type="text/css">
-/*分页图标*/
-.pc-page-icon {
-	margin-top: 10px;
-}
+
 </style>
 <script type="text/javascript">
 
-
-/**
- * 分页初始化函数
- */
-function initPagination() {
-	$('.pagination').jqPagination({
-			link_string : '/?page={page_number}',
-			current_page : 1, //设置当前页 默认为1
-			max_page : 10, //设置最大页 默认为1
-			page_string : '{current_page}/{max_page}',
-			paged : function(pageNo) {
-				//按选择的pageNo跳转请求
-			}
-		});
-	}
-
-
-$(document).ready(function() {
-    //初始化分页
-    initPagination();
-    //表单全选事件
-    $('#listTable').on('click', 'input:checkbox', _pc_commons.table_checkbox_click);
-
-    $('#id-btn-dialog2').on('click', function() {
-    	$('#modal-table').modal('show');
-    });
+var _role_admin = {
+	/**
+	* 分页初始化函数
+	*/
+	initPagination : function() {
+    $('#role-pagination').jqPagination({
+            link_string : '/?page={page_number}',
+            current_page : 1, //设置当前页 默认为1
+            max_page : 10, //设置最大页 默认为1
+            page_string : '{current_page}/{max_page}',
+            paged : function(pageNo) {
+                //按选择的pageNo跳转请求
+            }
+        });
+    },
     
-    
-    $('#id-btn-dialog1').on('click',
-    function(e) {
-        e.preventDefault();
-
-        //api:http://api.jqueryui.com/dialog/
-        //effect:effectBlind,effectBounce,effectClip,effectDrop,effectExplode,effectFade,effectFold,effectHighlight,effectSize,effectScale
-        //effectPuff,effectPulsate,effectShake,effectSlide,effectTransfer
-        
-        var options = {
-        		id : "dialog-message",
-        		buttons: [{
+    edit_role : function(target) {
+    	var options = {
+                id : "dialog-message",
+                buttons: [{
                     text: "Cancel",
                     "class": "btn btn-xs",
                     click: function() {
@@ -252,42 +239,45 @@ $(document).ready(function() {
                 }]
         }
         var dialog = _pc_commons.jqueryui_dialog(options);
-        
-//         var dialog = $("#dialog-message").removeClass('hide').dialog({
-//             modal: true,
-//             draggable: false,
-//             resizable: false,
-//             zIndex: 1000,
-//             width: 500,
-//             height: 500,
-//             title: "<div class='widget-header widget-header-small'><h4 class='smaller'><i class='ace-icon fa fa-check'></i> jQuery UI Dialog</h4></div>",
-//             title_html: true,
-//             show: {
-//                 effect: "puff",
-//                 duration: 300
-//             },
-//             hide: {
-//                 effect: "explode",
-//                 duration: 300
-//             },
-//             buttons: [{
-//                 text: "Cancel",
-//                 "class": "btn btn-xs",
-//                 click: function() {
-//                     $(this).dialog("close");
-//                 }
-//             },
-//             {
-//                 text: "OK",
-//                 "class": "btn btn-primary btn-xs",
-//                 click: function() {
-//                     $(this).dialog("close");
-//                 }
-//             }]
-//         });
+    },
+    
+    add_role : function() {
+        var options = {
+                id : "dialog-message",
+                buttons: [{
+                    text: "Cancel",
+                    "class": "btn btn-xs",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                },
+                {
+                    text: "OK",
+                    "class": "btn btn-primary btn-xs",
+                    click: function() {
+                        $(this).dialog("close");
+                    }
+                }]
+        }
+        var dialog = _pc_commons.jqueryui_dialog(options);
+    }
+};
 
+
+
+
+
+$(document).ready(function() {
+    //初始化分页
+    _role_admin.initPagination();
+    
+    //表单全选事件
+    $('#listTable').on('click', 'input:checkbox', _pc_commons.table_checkbox_click);
+
+    $('#id-btn-dialog2').on('click', function() {
+    	$('#modal-table').modal('show');
     });
-
+    
 });
 </script>
         

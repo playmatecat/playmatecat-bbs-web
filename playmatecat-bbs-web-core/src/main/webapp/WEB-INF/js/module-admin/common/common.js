@@ -106,22 +106,6 @@ var _pc_commons = {
                 duration: 300
             },
             buttons: options.buttons
-            	
-            	
-            	[{
-                text: "Cancel",
-                "class": "btn btn-xs",
-                click: function() {
-                    $(this).dialog("close");
-                }
-            },
-            {
-                text: "OK",
-                "class": "btn btn-primary btn-xs",
-                click: function() {
-                    $(this).dialog("close");
-                }
-            }]
         });
 		
 		return dialog

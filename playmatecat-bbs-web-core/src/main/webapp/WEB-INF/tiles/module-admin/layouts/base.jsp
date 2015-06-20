@@ -71,6 +71,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="${ctx}/static/lib/JqueryPagination-v1.2.6/jquery.pagination.min.css" rel="stylesheet"> --%>
 <link href="${ctx}/static/lib/jqPagination-1.4/css/jqpagination.css" rel="stylesheet">
 
+<link href="${ctx}/static/css/module-admin/common/common.css" rel="stylesheet">
+
+
+
+
 
 <script src="${ctx}/static/lib/ace-admin-v1.3.2/dist/js/ace-extra.min.js"></script>
 <!--[if lte IE 8]>
