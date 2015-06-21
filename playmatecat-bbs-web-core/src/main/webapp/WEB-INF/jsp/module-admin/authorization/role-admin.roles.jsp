@@ -29,31 +29,33 @@
 		<div class="animated fadeIn">
 
 		<div id="btnRow" class="well">
-			<form class="form-inline row">
-				<div class="form-group col-lg-2">
-					<label>名称：</label><input class="input-sm" type="text" placeholder="名称" />
-				</div>
-				<div class="form-group col-lg-2">
-					<label>编码：</label><input class="input-sm" type="text" placeholder="编码" />
-				</div>
-				<div class="form-group col-lg-2">
-                    <label>描述：</label><input class="input-sm" type="text" placeholder="描述" />
+			<form:form id="roleSearchForm" modelAttribute="authorizationVO" class="form-inline">
+			    <div class="row">
+			        <div class="form-group col-lg-2">
+                    <label>名称：</label><form:input path="roleDTO.name" class="input-sm" placeholder="名称"/>
+	                </div>
+	                <div class="form-group col-lg-2">
+	                    <label>编码：</label><form:input path="roleDTO.code" class="input-sm" placeholder="编码"/>
+	                </div>
+	                <div class="form-group col-lg-2">
+	                    <label>描述：</label><form:input path="roleDTO.description" class="input-sm" placeholder="描述"/>
+	                </div>
+			    </div>
+
+			</form:form>
+			<div class="form-control-static row">
+                <div class="col-lg-12">
+                    <button onclick="_role_admin.search_role()" class="btn btn-primary btn-info btn-sm">
+                              <i class="ace-icon fa fa-search-plus align-top bigger-125"></i> 查询
+                          </button>
+                    <button class="btn btn-warning btn-sm" onclick="_role_admin.add_role()">
+                        <i class="ace-icon fa fa-plus-square-o align-top bigger-125"></i> 新增
+                    </button>
+                    <button class="btn btn-danger btn-sm">
+                        <i class="ace-icon fa fa-trash-o align-top bigger-125"></i> 删除
+                    </button>
                 </div>
-			</form>
-		    
-		    <div class="form-control-static row">
-		        <div class="col-lg-12">
-				    <button class="btn btn-primary btn-info  btn-sm">
-			                  <i class="ace-icon fa fa-search-plus align-top bigger-125"></i> 查询
-			              </button>
-					<button class="btn btn-warning btn-sm" onclick="_role_admin.add_role()">
-						<i class="ace-icon fa fa-plus-square-o align-top bigger-125"></i> 新增
-					</button>
-					<button class="btn btn-danger btn-sm">
-						<i class="ace-icon fa fa-trash-o align-top bigger-125"></i> 删除
-					</button>
-				</div>
-			</div>
+            </div>
 		</div>
 
 
@@ -220,6 +222,21 @@ var _role_admin = {
         });
     },
     
+    /**
+     *查询角色信息
+     */
+    search_role : function() {
+    	var roleName = $("#roleSearchForm input[name='roleDTO.name']").val();
+    	var roleCode = $("#roleSearchForm input[name='roleDTO.code']").val();
+    	var roleDescription = $("#roleSearchForm input[name='roleDTO.description']").val();
+        var data = {
+        		'roleDTO.name' : roleName,
+        		'roleDTO.code' : roleCode,
+        		'roleDTO.description' : roleDescription
+        };
+        _pc_commons.ajax_content("#base-page-content",'${ctx}/admin/authorization/role-admin/roles',data);
+    },
+    
     edit_role : function(target) {
     	var options = {
                 id : "dialog-message",
@@ -239,6 +256,7 @@ var _role_admin = {
                 }]
         }
         var dialog = _pc_commons.jqueryui_dialog(options);
+
     },
     
     add_role : function() {
@@ -268,6 +286,7 @@ var _role_admin = {
 
 
 $(document).ready(function() {
+
     //初始化分页
     _role_admin.initPagination();
     

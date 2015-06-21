@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +22,8 @@ import com.playmatecat.mina.support.MinaServiceSupport;
 @RestController
 public class RoleAdminController {
 
-    @RequestMapping(value="/roles",method=RequestMethod.GET, produces="text/html")
-    public ModelAndView getRoles(AuthorizationVO authorizationVO, Model model,
+    @RequestMapping(value="/roles", produces="text/html")
+    public ModelAndView getRoles(@ModelAttribute AuthorizationVO authorizationVO, Model model,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
         AuthorizationVO rtnVO = (AuthorizationVO) MinaServiceSupport.call("bbs",

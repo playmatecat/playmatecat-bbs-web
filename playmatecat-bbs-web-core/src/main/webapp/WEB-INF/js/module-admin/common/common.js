@@ -1,4 +1,18 @@
 var _pc_commons = {
+		
+	/**
+	 * 作用,更新某块区域的html
+	 */
+	ajax_content : function(selector,url,data) {
+		$.ajax({
+			  type:'get',
+			  url: url,
+			  data: data,
+			  success: function(response) {
+				  $(selector).html(response);
+			  }
+		});
+	},	
 
 	/**
 	 * 作用:自动处理全选单选
