@@ -10,9 +10,65 @@ var _pc_commons = {
 			  data: data,
 			  success: function(response) {
 				  $(selector).html(response);
+			  },
+			  error:function() {
+				  var content = '后台发生了一个异常!';
+				  _pc_commons.error_alert(content);
 			  }
 		});
 	},	
+	
+	/**
+	 * 作用,调用某个ajax新增或者保存接口
+	 * @type 类型 值为"insert"或者"update"
+	 */
+	ajax_save : function(type,url,data) {
+		var method;
+		if(type == 'insert') {
+			method = 'post'
+		} else if(type == 'update') {
+			method = 'put'
+		} else {
+			throw new Error("参数值type不正确");
+		}
+		
+		//处理ajax
+		$.ajax({
+			  type:method,
+			  url: url,
+			  data: data,
+			  success: function(response) {
+				  _pc_commons.success_alert("操作成功!");
+			  },
+			  error:function() {
+				  var content = '后台发生了一个异常!';
+				  _pc_commons.error_alert(content);
+			  }
+		});
+			  
+	},
+	
+	/**
+	 * 当某个操作异常时候时,显示错误弹出层
+	 */
+	error_alert : function(content) {
+		var title = 'ERROR';
+		var html = '<div class="alert alert-block alert-danger animated shake" role="alert">'
+			  	+ '<button type="button" class="close" data-dismiss="alert"><i class="ace-icon fa fa-times"></i></button>'
+			  	+ '<i class="ace-icon glyphicon glyphicon-remove-sign red"></i>  ' + content + '</div>';
+		$('#message-box').html(html);
+	},
+	
+	/**
+	 * 当某个操作成功时候时,显示正确弹出层
+	 */
+	success_alert : function(content) {
+		var title = 'ERROR';
+		var html = '<div class="alert alert-block alert-success animated fadeIn" role="alert">'
+			  	+ '<button type="button" class="close" data-dismiss="alert"><i class="ace-icon fa fa-times"></i></button>'
+			  	+ '<i class="ace-icon fa fa-check-circle green"></i>  ' + content + '</div>';
+		$('#message-box').html(html);
+	},
 
 	/**
 	 * 作用:自动处理全选单选

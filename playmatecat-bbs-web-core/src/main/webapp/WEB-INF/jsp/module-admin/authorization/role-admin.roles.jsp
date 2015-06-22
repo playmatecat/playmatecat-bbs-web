@@ -21,12 +21,14 @@
 </div>
 
 
+
+
 <!-- 实际的内容部分 -->
 <div class="row">
 	<div id="main-content" class="col-xs-12">
-		<!-- page content goes here -->
+		<div id="message-box"><!-- 成功/错误信息 --></div>
 
-		<div class="animated fadeIn">
+		
 
 		<div id="btnRow" class="well">
 			<form:form id="roleSearchForm" modelAttribute="authorizationVO" class="form-inline">
@@ -58,7 +60,7 @@
             </div>
 		</div>
 
-
+        <div class="animated fadeIn">
 			<div class="row">
 				<div id="tableRow" class="col-xs-12">
 					    <table id="listTable" class="table table-striped table-bordered table-hover">
@@ -74,6 +76,7 @@
 		                </thead>
 		
 		                <tbody>
+		                    <c:if test="${!empty rolePage.list}">
 		                    <c:forEach items="${rolePage.list}" var="roleList">
 		                    <tr>
 		                        <!-- checkbox -->
@@ -119,7 +122,7 @@
 		                        </td>
 		                    </tr>
 		                </c:forEach>
-		
+		                </c:if>  
 		
 		
 		
@@ -140,11 +143,11 @@
 		                </tbody>
 		            </table>
 
+                    <span><c:if test="${!empty rolePage.list}">共${rolePage.total}条记录</c:if></span>
 					<div id="role-pagination" class="bigger-1x pagination pull-right">
 						<a href="#" class="first" data-action="first">&laquo;</a> <a href="#" class="previous" data-action="previous">&lsaquo;</a> <input type="text"
 							readonly="readonly" data-max-page="40" /> <a href="#" class="next" data-action="next">&rsaquo;</a> <a href="#" class="last" data-action="last">&raquo;</a>
 					</div>
-
 
 				</div>
 				<!-- /#tableRow -->
@@ -171,17 +174,17 @@
 
 
 
-
-<div id="dialog-message" class="hide">
+<!-- 添加角色的模态框 -->
+<div id="add-role-dialog" class="hide">
 	<div class="row">
 		<div class="form-group col-lg-12">
-			<label>名称：</label><input class="input-sm" type="text" placeholder="名称" />
+			<label>名称：</label><input name="roleDTO.name" class="input-sm" type="text" placeholder="名称" />
 		</div>
 		<div class="form-group col-lg-12">
-			<label>编码：</label><input class="input-sm" type="text" placeholder="编码" />
+			<label>编码：</label><input name="roleDTO.code" class="input-sm" type="text" placeholder="编码" />
 		</div>
 		<div class="form-group col-lg-12">
-			<label>描述：</label><input class="input-sm" type="text" placeholder="描述" />
+			<label>描述：</label><input name="roleDTO.description" class="input-sm" type="text" placeholder="描述" />
 		</div>
 	</div>
 
@@ -259,9 +262,15 @@ var _role_admin = {
 
     },
     
+    /**
+    * 新增角色
+    */
     add_role : function() {
+    	//清除输入框
+    	$("#add-role-dialog input").val("");
+    	
         var options = {
-                id : "dialog-message",
+                id : "add-role-dialog",
                 buttons: [{
                     text: "Cancel",
                     "class": "btn btn-xs",
@@ -273,6 +282,18 @@ var _role_admin = {
                     text: "OK",
                     "class": "btn btn-primary btn-xs",
                     click: function() {
+                    	//读取写入的数据
+                    	var roleName = $("#add-role-dialog input[name='roleDTO.name']").val();
+                        var roleCode = $("#add-role-dialog input[name='roleDTO.code']").val();
+                        var roleDescription = $("#add-role-dialog input[name='roleDTO.description']").val();
+                        var data = {
+                                'roleDTO.name' : roleName,
+                                'roleDTO.code' : roleCode,
+                                'roleDTO.description' : roleDescription
+                        };
+                    	
+                        _pc_commons.ajax_save('insert','${ctx}/admin/authorization/role-admin/role',data);
+                        
                         $(this).dialog("close");
                     }
                 }]
@@ -286,7 +307,6 @@ var _role_admin = {
 
 
 $(document).ready(function() {
-
     //初始化分页
     _role_admin.initPagination();
     
