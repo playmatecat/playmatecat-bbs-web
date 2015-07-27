@@ -1,10 +1,12 @@
 package com.playmatecat.ctrl.authorization;
 
+import java.lang.reflect.Method;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.cglib.core.ReflectUtils;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.playmatecat.bbs.bbsApp.admin.vo.AuthorizationVO;
 import com.playmatecat.mina.support.MinaServiceSupport;
 import com.playmatecat.utils.json.UtilsViewJson;
+import com.playmatecat.utils.spring.UtilsSpringContext;
 
 /**
  * 角色管理
@@ -39,6 +42,14 @@ public class RoleAdminController {
     @RequestMapping(value="/roles",method=RequestMethod.GET, produces=MediaType.TEXT_HTML_VALUE)
     public ModelAndView getRoles(@ModelAttribute AuthorizationVO authorizationVO, Model model,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
+        TestAOPCtrl testAOPCtrl = (TestAOPCtrl) UtilsSpringContext.getBean("testAopCtrl");
+        Class clazz = testAOPCtrl.getClass();
+        Method m = clazz.getMethod("main");
+        m.invoke(testAOPCtrl);
+        
+        //testAOPCtrl.main();
+        
+        
         
         AuthorizationVO rtnVO = (AuthorizationVO) MinaServiceSupport.call("bbs",
                 "admin-authorizationCpt.getRolesPagination", authorizationVO);
